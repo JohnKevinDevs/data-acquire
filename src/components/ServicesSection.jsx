@@ -6,7 +6,7 @@ function ServicesSection() {
     <section className="section services section-anchor" id="servicos">
       <div className="content-shell service-layout">
         <div className="section-intro">
-          <p className="eyebrow">Servicos</p>
+          <p className="eyebrow">Serviços</p>
           <h2>Consultoria para diagnosticar, medir e otimizar a aquisição digital.</h2>
           <p>
             Atuamos nos pontos que mais impactam performance: campanhas, segmentação,

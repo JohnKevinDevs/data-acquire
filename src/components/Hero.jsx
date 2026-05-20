@@ -23,7 +23,7 @@ function Hero() {
               <BarChart3 size={24} />
               <div>
                 <span>Performance</span>
-                <strong>Campanhas priorizadas por conversao</strong>
+                <strong>Campanhas priorizadas por conversão</strong>
               </div>
             </div>
             <div className="chart-bars">

@@ -13,6 +13,7 @@
   --section: #f5f8fc;
   --white: #ffffff;
   --shadow: 0 18px 46px rgba(7, 31, 73, 0.12);
+  --container: 1180px;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -29,13 +30,16 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: 92px;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: clip;
   background: var(--white);
   color: var(--ink);
   line-height: 1.6;
@@ -71,12 +75,12 @@ p {
 }
 
 .content-shell {
-  width: min(1160px, calc(100% - 40px));
+  width: min(var(--container), calc(100% - clamp(1.75rem, 6vw, 4rem)));
   margin: 0 auto;
 }
 
 .section {
-  padding: 92px 0;
+  padding: clamp(4.5rem, 7vw, 6.25rem) 0;
 }
 
 .section-anchor {
@@ -85,9 +89,10 @@ p {
 
 .eyebrow {
   color: var(--blue);
-  font-size: 0.79rem;
+  font-size: clamp(0.74rem, 0.4vw, 0.82rem);
   font-weight: 800;
   letter-spacing: 0;
+  line-height: 1.35;
   margin-bottom: 14px;
   text-transform: uppercase;
 }
@@ -100,7 +105,7 @@ p {
 
 .section-heading {
   max-width: 780px;
-  margin: 0 auto 42px;
+  margin: 0 auto clamp(2rem, 4vw, 2.75rem);
   text-align: center;
 }
 
@@ -108,16 +113,17 @@ p {
 .section-heading h2,
 .contact-copy h2 {
   color: var(--navy);
-  font-size: 2.6rem;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
   font-weight: 820;
-  line-height: 1.12;
+  line-height: 1.08;
+  text-wrap: balance;
 }
 
 .section-intro p,
 .section-heading p,
 .contact-copy p {
   color: var(--muted);
-  font-size: 1.04rem;
+  font-size: clamp(0.98rem, 1.3vw, 1.06rem);
   max-width: 660px;
 }
 
@@ -130,7 +136,7 @@ p {
   gap: 10px;
   justify-content: center;
   min-height: 48px;
-  padding: 12px 18px;
+  padding: 12px clamp(1rem, 2vw, 1.25rem);
   text-align: center;
   white-space: normal;
   transition:
@@ -171,10 +177,10 @@ p {
   background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid rgba(219, 228, 240, 0.82);
   display: flex;
-  gap: 22px;
+  gap: clamp(0.75rem, 2vw, 1.375rem);
   justify-content: space-between;
-  min-height: 78px;
-  padding: 12px max(20px, calc((100% - 1160px) / 2));
+  min-height: 76px;
+  padding: 12px max(clamp(1rem, 4vw, 2rem), calc((100% - var(--container)) / 2));
   position: sticky;
   top: 0;
   z-index: 30;
@@ -188,19 +194,19 @@ p {
 }
 
 .brand img {
-  height: 42px;
+  height: clamp(2.125rem, 3.1vw, 2.625rem);
   width: auto;
 }
 
 .nav-links {
   align-items: center;
   display: flex;
-  gap: 22px;
+  gap: clamp(0.875rem, 1.8vw, 1.375rem);
 }
 
 .nav-links a {
   color: #31445f;
-  font-size: 0.93rem;
+  font-size: clamp(0.88rem, 0.75vw, 0.94rem);
   font-weight: 700;
   padding: 9px 0;
   transition: color 160ms ease;
@@ -216,6 +222,7 @@ p {
   border-radius: 8px;
   color: var(--white);
   padding: 10px 16px;
+  white-space: nowrap;
 }
 
 .nav-links .header-cta:hover {
@@ -235,6 +242,42 @@ p {
   height: 42px;
   justify-content: center;
   width: 42px;
+  position: relative;
+  z-index: 34;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.menu-toggle:hover {
+  border-color: rgba(22, 136, 229, 0.35);
+  color: var(--blue);
+}
+
+.menu-toggle[aria-expanded="true"] {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.menu-backdrop {
+  background: rgba(5, 22, 52, 0.2);
+  border: 0;
+  display: none;
+  inset: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 180ms ease;
+  z-index: 20;
+}
+
+.menu-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .hero {
@@ -244,9 +287,9 @@ p {
     var(--navy-deep);
   background-size: 56px 56px;
   color: var(--white);
-  min-height: calc(100svh - 104px);
+  min-height: clamp(640px, calc(100svh - 76px), 820px);
   overflow: hidden;
-  padding: 74px 0 58px;
+  padding: clamp(4rem, 7vw, 6.25rem) 0 clamp(3.5rem, 6vw, 5rem);
   position: relative;
 }
 
@@ -261,9 +304,9 @@ p {
 
 .hero-content {
   display: grid;
-  gap: 42px;
+  gap: clamp(2rem, 4vw, 2.75rem);
   grid-template-columns: minmax(0, 1fr);
-  min-height: 510px;
+  min-height: clamp(500px, calc(100svh - 170px), 660px);
   place-content: center start;
   position: relative;
   z-index: 2;
@@ -280,17 +323,18 @@ p {
 
 .hero h1 {
   color: var(--white);
-  font-size: 4rem;
+  font-size: clamp(2.15rem, 5.2vw, 4.35rem);
   font-weight: 860;
-  line-height: 1.04;
+  line-height: 1.03;
   max-width: 760px;
+  text-wrap: balance;
 }
 
 .hero-subtitle {
   color: #d9e8fb;
-  font-size: 1.18rem;
-  line-height: 1.75;
-  margin-top: 24px;
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  line-height: 1.7;
+  margin-top: clamp(1.125rem, 2.5vw, 1.5rem);
   max-width: 650px;
 }
 
@@ -298,7 +342,11 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 34px;
+  margin-top: clamp(1.625rem, 3vw, 2.125rem);
+}
+
+.hero-actions .button {
+  min-width: min(100%, 182px);
 }
 
 .hero-proof {
@@ -319,6 +367,7 @@ p {
   gap: 9px;
   min-height: 42px;
   padding: 10px 12px;
+  white-space: nowrap;
 }
 
 .hero-proof svg {
@@ -341,10 +390,10 @@ p {
   min-height: 300px;
   padding: 18px;
   position: absolute;
-  right: 7%;
-  top: 22%;
+  right: max(3vw, calc((100% - var(--container)) / 2));
+  top: 23%;
   transform: rotate(-2deg);
-  width: 430px;
+  width: clamp(360px, 32vw, 470px);
 }
 
 .board-header {
@@ -474,7 +523,7 @@ p {
   gap: 12px;
   padding: 12px 16px;
   position: absolute;
-  right: 30%;
+  right: max(28%, calc((100% - var(--container)) / 2 + 320px));
   top: 17%;
   transform: rotate(3deg);
 }
@@ -502,7 +551,7 @@ p {
 .contact-layout {
   align-items: center;
   display: grid;
-  gap: 58px;
+  gap: clamp(2.5rem, 5vw, 4rem);
   grid-template-columns: 0.95fr 1.05fr;
 }
 
@@ -512,7 +561,7 @@ p {
   border-radius: 8px;
   display: grid;
   gap: 12px;
-  padding: 26px;
+  padding: clamp(1.25rem, 2.5vw, 1.625rem);
 }
 
 .problem-item {
@@ -525,7 +574,7 @@ p {
   font-weight: 720;
   gap: 12px;
   min-height: 56px;
-  padding: 14px 16px;
+  padding: 14px clamp(0.875rem, 2vw, 1rem);
 }
 
 .problem-item svg {
@@ -539,7 +588,7 @@ p {
 
 .solution-grid {
   display: grid;
-  gap: 18px;
+  gap: clamp(1rem, 2vw, 1.25rem);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -549,8 +598,9 @@ p {
   border-radius: 8px;
   display: grid;
   gap: 16px;
-  min-height: 284px;
-  padding: 24px;
+  grid-template-rows: auto auto 1fr;
+  min-height: clamp(260px, 22vw, 292px);
+  padding: clamp(1.25rem, 2.2vw, 1.5rem);
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
@@ -565,8 +615,9 @@ p {
 
 .solution-card h3 {
   color: var(--navy);
-  font-size: 1.24rem;
+  font-size: clamp(1.08rem, 1.5vw, 1.24rem);
   line-height: 1.25;
+  text-wrap: balance;
 }
 
 .solution-card p {
@@ -609,7 +660,7 @@ p {
   font-weight: 750;
   gap: 12px;
   min-height: 64px;
-  padding: 18px 22px;
+  padding: clamp(0.95rem, 2vw, 1.125rem) clamp(1rem, 2.4vw, 1.375rem);
 }
 
 .service-item:last-child {
@@ -638,7 +689,7 @@ p {
 
 .differential-grid {
   display: grid;
-  gap: 14px;
+  gap: clamp(0.875rem, 1.8vw, 1rem);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -646,9 +697,9 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
   display: grid;
-  gap: 22px;
-  min-height: 164px;
-  padding: 22px;
+  gap: clamp(1rem, 2vw, 1.375rem);
+  min-height: clamp(142px, 13vw, 164px);
+  padding: clamp(1.125rem, 2vw, 1.375rem);
   position: relative;
 }
 
@@ -660,7 +711,7 @@ p {
 
 .differential-item h3 {
   color: #edf6ff;
-  font-size: 1.16rem;
+  font-size: clamp(1rem, 1.3vw, 1.16rem);
   line-height: 1.28;
   max-width: 240px;
 }
@@ -712,7 +763,7 @@ p {
   box-shadow: var(--shadow);
   display: grid;
   gap: 16px;
-  padding: 26px;
+  padding: clamp(1.25rem, 3vw, 1.625rem);
 }
 
 .lead-form label {
@@ -777,9 +828,9 @@ p {
 
 .footer-layout {
   display: grid;
-  gap: 42px;
+  gap: clamp(2rem, 4vw, 3rem);
   grid-template-columns: 1.4fr 0.8fr 1fr;
-  padding: 54px 0 38px;
+  padding: clamp(2.75rem, 5vw, 3.5rem) 0 clamp(2rem, 4vw, 2.5rem);
 }
 
 .footer-brand img {
@@ -851,10 +902,6 @@ p {
 }
 
 @media (max-width: 1080px) {
-  .site-header {
-    padding-inline: 20px;
-  }
-
   .nav-links {
     gap: 14px;
   }
@@ -874,13 +921,14 @@ p {
   }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 980px) {
   .section {
-    padding: 72px 0;
+    padding: clamp(4rem, 9vw, 4.75rem) 0;
   }
 
   .site-header {
     min-height: 72px;
+    padding-inline: clamp(1rem, 4vw, 1.5rem);
   }
 
   .brand img {
@@ -896,17 +944,30 @@ p {
     border: 1px solid var(--line);
     border-radius: 8px;
     box-shadow: var(--shadow);
-    display: none;
+    display: grid;
     gap: 4px;
-    left: 20px;
+    left: clamp(1rem, 4vw, 1.5rem);
+    opacity: 0;
     padding: 12px;
+    pointer-events: none;
     position: absolute;
-    right: 20px;
+    right: clamp(1rem, 4vw, 1.5rem);
     top: calc(100% + 10px);
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top right;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 180ms ease;
+    visibility: hidden;
+    z-index: 33;
   }
 
   .nav-links.is-open {
-    display: grid;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    visibility: visible;
   }
 
   .nav-links a {
@@ -921,11 +982,16 @@ p {
   .nav-links .header-cta {
     margin-top: 6px;
     text-align: center;
+    width: 100%;
+  }
+
+  .menu-backdrop {
+    display: block;
   }
 
   .hero {
-    min-height: calc(100svh - 112px);
-    padding: 58px 0 48px;
+    min-height: auto;
+    padding: clamp(4rem, 8vw, 5.25rem) 0 clamp(3rem, 7vw, 4rem);
   }
 
   .hero-content {
@@ -933,7 +999,7 @@ p {
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2.45rem, 7vw, 3.2rem);
   }
 
   .hero-subtitle {
@@ -941,10 +1007,10 @@ p {
   }
 
   .analytics-board {
-    bottom: 20px;
-    right: -120px;
+    bottom: 24px;
+    right: -132px;
     top: auto;
-    transform: rotate(-2deg) scale(0.8);
+    transform: rotate(-2deg) scale(0.78);
   }
 
   .metric-strip {
@@ -961,7 +1027,7 @@ p {
   .section-intro h2,
   .section-heading h2,
   .contact-copy h2 {
-    font-size: 2.18rem;
+    font-size: clamp(1.85rem, 5vw, 2.2rem);
   }
 
   .footer-layout {
@@ -971,15 +1037,15 @@ p {
 
 @media (max-width: 640px) {
   .content-shell {
-    width: min(100% - 28px, 1160px);
+    width: min(100% - 28px, var(--container));
   }
 
   .hero {
-    padding: 48px 0 42px;
+    padding: 3.75rem 0 3.25rem;
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 9vw, 2.35rem);
   }
 
   .hero-actions {
@@ -1000,15 +1066,16 @@ p {
   }
 
   .analytics-board {
-    opacity: 0.18;
-    right: -220px;
-    transform: rotate(-2deg) scale(0.68);
+    bottom: 4.75rem;
+    opacity: 0.12;
+    right: -210px;
+    transform: rotate(-2deg) scale(0.62);
   }
 
   .section-intro h2,
   .section-heading h2,
   .contact-copy h2 {
-    font-size: 1.86rem;
+    font-size: clamp(1.72rem, 8vw, 1.95rem);
   }
 
   .section-heading {
@@ -1023,7 +1090,7 @@ p {
   .solution-card,
   .problem-panel,
   .lead-form {
-    padding: 20px;
+    padding: 1.125rem;
   }
 
   .solution-card {
@@ -1045,7 +1112,7 @@ p {
   }
 
   .hero h1 {
-    font-size: 1.96rem;
+    font-size: clamp(1.86rem, 8.4vw, 2.05rem);
   }
 
   .hero-subtitle {
@@ -1055,5 +1122,39 @@ p {
   .problem-item,
   .service-item {
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 360px) {
+  .content-shell {
+    width: min(100% - 24px, var(--container));
+  }
+
+  .hero h1 {
+    font-size: 1.78rem;
+  }
+
+  .button {
+    padding-inline: 0.875rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container: 1240px;
+  }
+
+  .hero-copy {
+    max-width: 780px;
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --container: 1320px;
+  }
+
+  .hero {
+    min-height: 820px;
   }
 }

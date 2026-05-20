@@ -131,6 +131,8 @@ p {
   justify-content: center;
   min-height: 48px;
   padding: 12px 18px;
+  text-align: center;
+  white-space: normal;
   transition:
     background 180ms ease,
     border-color 180ms ease,
@@ -260,6 +262,7 @@ p {
 .hero-content {
   display: grid;
   gap: 42px;
+  grid-template-columns: minmax(0, 1fr);
   min-height: 510px;
   place-content: center start;
   position: relative;
@@ -268,6 +271,7 @@ p {
 
 .hero-copy {
   max-width: 720px;
+  width: 100%;
 }
 
 .hero .eyebrow {
@@ -275,6 +279,7 @@ p {
 }
 
 .hero h1 {
+  color: var(--white);
   font-size: 4rem;
   font-weight: 860;
   line-height: 1.04;
@@ -824,12 +829,10 @@ p {
 
 @keyframes fade-up {
   from {
-    opacity: 0;
     transform: translateY(14px);
   }
 
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -976,7 +979,7 @@ p {
   }
 
   .hero h1 {
-    font-size: 2.42rem;
+    font-size: 2.2rem;
   }
 
   .hero-actions {
@@ -1042,7 +1045,7 @@ p {
   }
 
   .hero h1 {
-    font-size: 2.08rem;
+    font-size: 1.96rem;
   }
 
   .hero-subtitle {
@@ -1054,4 +1057,3 @@ p {
     align-items: flex-start;
   }
 }
-

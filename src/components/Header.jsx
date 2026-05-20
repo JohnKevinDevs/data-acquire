@@ -1,11 +1,12 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { navItems } from "../data/siteContent.js";
+import { navItems, siteContent } from "../data/siteContent.js";
 
 const logo = "/logo-dataacquire.png";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const isHomePage = window.location.pathname === "/";
 
   const closeMenu = () => setIsOpen(false);
 
@@ -17,7 +18,7 @@ function Header() {
     };
 
     const handleResize = () => {
-      if (window.innerWidth > 980) {
+      if (window.innerWidth > 1120) {
         closeMenu();
       }
     };
@@ -55,12 +56,12 @@ function Header() {
           aria-label="Principal"
         >
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={closeMenu}>
+            <a key={item.href} href={isHomePage ? item.href : `/${item.href}`} onClick={closeMenu}>
               {item.label}
             </a>
           ))}
-          <a className="header-cta" href="#contato" onClick={closeMenu}>
-            Fale com a DataAcquire
+          <a className="header-cta" href="/#contato" onClick={closeMenu}>
+            {siteContent.company.primaryOffer}
           </a>
         </nav>
       </header>

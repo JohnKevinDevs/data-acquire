@@ -201,12 +201,12 @@ p {
 .nav-links {
   align-items: center;
   display: flex;
-  gap: clamp(0.875rem, 1.8vw, 1.375rem);
+  gap: clamp(0.75rem, 1.4vw, 1.125rem);
 }
 
 .nav-links a {
   color: #31445f;
-  font-size: clamp(0.88rem, 0.75vw, 0.94rem);
+  font-size: clamp(0.83rem, 0.7vw, 0.92rem);
   font-weight: 700;
   padding: 9px 0;
   transition: color 160ms ease;
@@ -221,7 +221,7 @@ p {
   border: 1px solid var(--navy);
   border-radius: 8px;
   color: var(--white);
-  padding: 10px 16px;
+  padding: 10px 14px;
   white-space: nowrap;
 }
 
@@ -586,6 +586,10 @@ p {
   background: var(--section);
 }
 
+.how-it-works {
+  background: var(--white);
+}
+
 .solution-grid {
   display: grid;
   gap: clamp(1rem, 2vw, 1.25rem);
@@ -653,6 +657,46 @@ p {
   overflow: hidden;
 }
 
+.process-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.25rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.process-card {
+  background: var(--white);
+  border: 1px solid #e2eaf4;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(7, 31, 73, 0.06);
+  display: grid;
+  gap: 16px;
+  min-height: 248px;
+  padding: clamp(1.25rem, 2.4vw, 1.625rem);
+  position: relative;
+}
+
+.process-number {
+  color: rgba(22, 136, 229, 0.18);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+
+.process-card h3 {
+  color: var(--navy);
+  font-size: clamp(1.08rem, 1.5vw, 1.24rem);
+  line-height: 1.25;
+  margin-top: 8px;
+}
+
+.process-card p {
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
 .service-item {
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -677,6 +721,56 @@ p {
     linear-gradient(90deg, rgba(22, 136, 229, 0.12), transparent 42%),
     var(--navy-deep);
   color: var(--white);
+}
+
+.faq {
+  background: var(--white);
+}
+
+.faq-layout {
+  align-items: start;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--section);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  align-items: center;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  font-weight: 820;
+  gap: 12px;
+  list-style: none;
+  padding: 18px 20px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary svg {
+  color: var(--blue);
+  flex: 0 0 auto;
+}
+
+.faq-item p {
+  border-top: 1px solid rgba(219, 228, 240, 0.8);
+  color: var(--muted);
+  margin: 0;
+  padding: 0 20px 18px 50px;
 }
 
 .differentials .section-heading h2 {
@@ -766,6 +860,12 @@ p {
   padding: clamp(1.25rem, 3vw, 1.625rem);
 }
 
+.form-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .lead-form label {
   color: var(--navy);
   display: grid;
@@ -775,6 +875,7 @@ p {
 }
 
 .lead-form input,
+.lead-form select,
 .lead-form textarea {
   background: #fbfdff;
   border: 1px solid #d8e2ee;
@@ -791,9 +892,16 @@ p {
 }
 
 .lead-form input:focus,
+.lead-form select:focus,
 .lead-form textarea:focus {
   border-color: var(--blue);
   box-shadow: 0 0 0 4px rgba(22, 136, 229, 0.14);
+}
+
+.lead-form input[aria-invalid="true"],
+.lead-form select[aria-invalid="true"],
+.lead-form textarea[aria-invalid="true"] {
+  border-color: #cf2e57;
 }
 
 .lead-form textarea {
@@ -805,6 +913,129 @@ p {
   cursor: pointer;
   margin-top: 4px;
   width: 100%;
+}
+
+.lead-form .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  transform: none;
+}
+
+.field-error {
+  color: #b42345;
+  font-size: 0.82rem;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.consent-field {
+  align-items: flex-start;
+  color: #3d516c;
+  display: flex;
+  font-size: 0.88rem;
+  font-weight: 650;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.consent-field input {
+  flex: 0 0 auto;
+  height: 18px;
+  margin-top: 3px;
+  min-height: 18px;
+  width: 18px;
+}
+
+.consent-field a {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.consent-error {
+  margin-top: -8px;
+}
+
+.form-status {
+  align-items: flex-start;
+  border-radius: 8px;
+  display: flex;
+  font-size: 0.92rem;
+  font-weight: 760;
+  gap: 10px;
+  line-height: 1.45;
+  padding: 12px 14px;
+}
+
+.form-status svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.form-status-error {
+  background: #fff1f3;
+  color: #9f1239;
+}
+
+.form-status-success {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+.form-status-loading {
+  background: var(--blue-soft);
+  color: var(--navy);
+}
+
+.thank-you-page,
+.privacy-page {
+  background:
+    linear-gradient(135deg, rgba(22, 136, 229, 0.08), transparent 42%),
+    var(--section);
+  min-height: 68vh;
+}
+
+.thank-you-card,
+.privacy-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 18px;
+  max-width: 760px;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.thank-you-card h1,
+.privacy-card h1 {
+  color: var(--navy);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.08;
+}
+
+.thank-you-card p,
+.privacy-card p {
+  color: var(--muted);
+  font-size: 1.06rem;
+  max-width: 620px;
+}
+
+.thank-you-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.button-secondary-light {
+  background: var(--white);
+  border-color: var(--line);
+  color: var(--navy);
+}
+
+.button-secondary-light:hover {
+  border-color: rgba(22, 136, 229, 0.35);
+  color: var(--blue);
 }
 
 .form-secondary-link {
@@ -921,7 +1152,7 @@ p {
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1120px) {
   .section {
     padding: clamp(4rem, 9vw, 4.75rem) 0;
   }
@@ -1019,7 +1250,8 @@ p {
 
   .two-column,
   .service-layout,
-  .contact-layout {
+  .contact-layout,
+  .faq-layout {
     gap: 36px;
     grid-template-columns: 1fr;
   }
@@ -1083,11 +1315,13 @@ p {
   }
 
   .solution-grid,
-  .differential-grid {
+  .differential-grid,
+  .process-grid {
     grid-template-columns: 1fr;
   }
 
   .solution-card,
+  .process-card,
   .problem-panel,
   .lead-form {
     padding: 1.125rem;
@@ -1099,6 +1333,23 @@ p {
 
   .differential-item {
     min-height: 142px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-item summary {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .faq-item p {
+    padding: 0 16px 16px 46px;
+  }
+
+  .thank-you-actions {
+    display: grid;
   }
 
   .footer-brand img {

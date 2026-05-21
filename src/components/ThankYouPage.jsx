@@ -3,7 +3,7 @@ import { getWhatsAppUrl, siteContent } from "../data/siteContent.js";
 
 function ThankYouPage() {
   const whatsappUrl = getWhatsAppUrl(
-    "Olá, enviei o formulário no site da DataAcquire e gostaria de falar sobre meu diagnóstico.",
+    "Olá, vim pelo site da DataAcquire e gostaria de falar sobre aquisição digital.",
   );
 
   return (

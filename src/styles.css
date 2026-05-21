@@ -1006,6 +1006,10 @@ p {
   padding: clamp(1.5rem, 4vw, 2.25rem);
 }
 
+.privacy-policy-card {
+  max-width: 920px;
+}
+
 .thank-you-card h1,
 .privacy-card h1 {
   color: var(--navy);
@@ -1018,6 +1022,76 @@ p {
   color: var(--muted);
   font-size: 1.06rem;
   max-width: 620px;
+}
+
+.privacy-policy-card > p {
+  max-width: 760px;
+}
+
+.privacy-updated {
+  color: #31445f;
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.privacy-sections {
+  display: grid;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.privacy-section {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+  padding-top: 18px;
+}
+
+.privacy-section h2 {
+  color: var(--navy);
+  font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.privacy-section p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.72;
+  max-width: 780px;
+}
+
+.privacy-contact-box {
+  align-items: flex-start;
+  background: var(--section);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--navy);
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+}
+
+.privacy-contact-box svg {
+  color: var(--blue);
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.privacy-contact-box strong,
+.privacy-contact-box a {
+  display: block;
+}
+
+.privacy-contact-box a {
+  color: var(--blue);
+  font-weight: 800;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.privacy-back-button {
+  justify-self: start;
 }
 
 .thank-you-actions {
@@ -1350,6 +1424,10 @@ p {
 
   .thank-you-actions {
     display: grid;
+  }
+
+  .privacy-back-button {
+    justify-self: stretch;
   }
 
   .footer-brand img {

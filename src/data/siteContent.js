@@ -174,8 +174,10 @@ export const faqItems = [
   },
 ];
 
-export function getWhatsAppUrl(message = "Olá, gostaria de falar com a DataAcquire.") {
-  const number = siteContent.contact.whatsapp;
+export function getWhatsAppUrl(
+  message = "Olá, vim pelo site da DataAcquire e gostaria de falar sobre aquisição digital.",
+) {
+  const number = siteContent.contact.whatsapp.replace(/\D/g, "");
 
   if (!number) {
     return "";

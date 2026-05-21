@@ -249,8 +249,11 @@ function ContactSection() {
               onChange={handleChange}
             />
             <span>
-              Ao enviar, você concorda que a DataAcquire entre em contato a partir dos dados
-              informados. Leia a futura <a href="/privacidade">política de privacidade</a>.
+              Li e concordo com a{" "}
+              <a href="/privacidade" target="_blank" rel="noreferrer">
+                Política de Privacidade
+              </a>{" "}
+              e autorizo a DataAcquire a entrar em contato usando os dados informados.
             </span>
           </label>
           {errors.consent ? <span className="field-error consent-error">{errors.consent}</span> : null}

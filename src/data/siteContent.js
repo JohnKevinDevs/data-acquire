@@ -5,7 +5,7 @@ export const siteContent = {
     description:
       "Consultoria em análise de dados, segmentação inteligente, otimização de campanhas e Business Intelligence para empresas que querem crescer com mais clareza.",
     valueProposition: "Transforme dados em crescimento digital inteligente",
-    primaryOffer: "Solicitar diagnóstico de campanhas",
+    primaryOffer: "Solicitar diagnóstico de aquisição digital",
     location: "São Paulo, SP",
     briefingSource:
       "Briefing extraído do documento DataAcq - TCC.pdf: desafio na aquisição digital de clientes, São Paulo, 2026.",
@@ -13,10 +13,10 @@ export const siteContent = {
   contact: {
     email: "team.dataacquire@gmail.com",
     // Preencha apenas com numeros, incluindo DDI e DDD. Exemplo: "5511999999999".
-    whatsapp: "",
+    whatsapp: "5511950044153",
     socialLinks: {
       linkedin: "",
-      instagram: "",
+      instagram: "https://www.instagram.com/data.acquire/",
     },
   },
   seo: {
@@ -25,7 +25,7 @@ export const siteContent = {
       "Consultoria em análise de dados, segmentação inteligente, otimização de campanhas e Business Intelligence para empresas que querem crescer com mais clareza.",
     keywords:
       "DataAcquire, análise de dados, aquisição digital, business intelligence, segmentação inteligente, otimização de campanhas",
-    canonicalUrl: "https://data-acquire.com.br/",
+    canonicalUrl: "",
   },
   hero: {
     eyebrow: "Consultoria em dados para aquisição digital",

@@ -4,6 +4,7 @@ vite-output.log
 vite-error.log
 .env
 .env.*
+!.env.example
 *.local
 .DS_Store
 Thumbs.db

@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!assets/|logo-dataacquire.png|favicon.ico|_redirects).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+

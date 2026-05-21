@@ -2,8 +2,7 @@ import { AlertCircle, CheckCircle2, Mail, MessageSquare, Send } from "lucide-rea
 import { useState } from "react";
 import { leadGoals, siteContent } from "../data/siteContent.js";
 
-const formspreeEndpoint =
-  import.meta.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || import.meta.env.VITE_FORMSPREE_ENDPOINT;
+const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
 const initialFormData = {
   name: "",
@@ -81,7 +80,7 @@ function ContactSection() {
       setStatus({
         type: "error",
         message:
-          "Formulário ainda não configurado. Defina NEXT_PUBLIC_FORMSPREE_ENDPOINT com o endpoint do Formspree.",
+          "Formulário ainda não configurado. Defina VITE_FORMSPREE_ENDPOINT com o endpoint do Formspree.",
       });
       return;
     }

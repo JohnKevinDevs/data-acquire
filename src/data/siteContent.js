@@ -25,7 +25,7 @@ export const siteContent = {
       "Consultoria em análise de dados, segmentação inteligente, otimização de campanhas e Business Intelligence para empresas que querem crescer com mais clareza.",
     keywords:
       "DataAcquire, análise de dados, aquisição digital, business intelligence, segmentação inteligente, otimização de campanhas",
-    canonicalUrl: "",
+    canonicalUrl: "https://data-acquire.vercel.app/",
   },
   hero: {
     eyebrow: "Consultoria em dados para aquisição digital",
